@@ -1,27 +1,32 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int main()
-{
-    int no;
+int main() {
     int N;
-
-    cin >> N;
-    while(N>0){
-        cin >> no;
-
-        int ans = 0;
-        int p = 1;
-
-        while (no > 0)
-        {
-            int r = no % 10;
-            ans = ans + p * r;
-            p = p * 2;
-            no = no / 10;
-        }
-        cout << ans << endl;
-        N=N-1;
+    int a[16];
+    cin>>N;
+    char ch = cin.get();
+    for(int i = 0; i < N; i++){
+       int j=-1;
+       ch = cin.get();
+       while(ch != '\n' && ch!=EOF)
+       {
+           j++;
+           a[j]=ch-'0';
+           ch = cin.get(); 
+           //cout<<a[j]<<" ";  
+       }
+      // cout<<a<<" ";
+       int k = 1;
+       int sum = 0;
+       while(j>=0){
+           if(a[j]!=0)
+                sum = sum + a[j]*k;
+           k = k*2;
+           j--;
+       }
+       cout<<sum<<endl;
     }
-    return 0;
+
+	return 0;
 }
